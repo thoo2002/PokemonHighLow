@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
-//import HP from './HP.js';
+import HP from './HP.js';
 import ATT from './ATT.js';
 import DEF from './DEF.js';
 import SPATT from './SPATT.js';
@@ -18,9 +18,9 @@ function App() {
         <h1>Pokemon High Low Game</h1>
         <nav>
           <ul>
-            {/* <li>
+            <li>
               <button onClick={() => window.location.href='/HP'}>HP</button>
-            </li> */}
+            </li>
             <li>
               <button onClick={() => window.location.href='/ATT'}>ATTACK</button>
             </li>
@@ -41,7 +41,7 @@ function App() {
       </header>
 
       <Routes>
-        {/* <Route path="/HP" element={<HP />} /> */}
+        <Route path="/HP" element={<HP />} />
         <Route path="/ATT" element={<ATT />} />
         <Route path="/DEF" element={<DEF />} />
         <Route path="/SPATT" element={<SPATT />} />
