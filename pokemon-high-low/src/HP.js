@@ -12,7 +12,8 @@ function HP() {
         img: 'none',
     });
     useEffect(() => {
-        setPkm1({name: getPkmnName(),
+        setPkm1({
+            name: getPkmnName(),
             stat: getPkmnStat(),
             img: getPkmnImg(),
         }
@@ -54,7 +55,9 @@ function HP() {
     };
 
     function ComparisonHigher() {
-        if (pkm1 >= pkm2){
+        console.log(pkm1);
+        console.log(pkm2);
+        if (pkm1.stat >= pkm2.stat){
             setCounter(counter + 1);
             setPkm1(pkm2);
             setPkm2({
@@ -69,7 +72,7 @@ function HP() {
     }
 
     function ComparisonLower(){
-        if (pkm1 <= pkm2){
+        if (pkm1.stat <= pkm2.stat){
             setCounter(counter + 1);
             setPkm1(pkm2);
             setPkm2({
