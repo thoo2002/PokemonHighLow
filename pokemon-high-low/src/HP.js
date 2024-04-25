@@ -87,8 +87,8 @@ function HP() {
             <h1>High Low</h1>
             <h2>{pkm1.name}</h2>
             <img src={pkm1.img} alt="Pokemon" />
-            {/* <button onClick={() => ComparisonHigher()}>Higher</button>
-            <button onClick={() => ComparisonLower()}>Lower</button> */}
+            <button onClick={() => ComparisonHigher()}>Higher</button>
+            <button onClick={() => ComparisonLower()}>Lower</button>
             <h2>Score: {counter}</h2>
         </div>
     );
