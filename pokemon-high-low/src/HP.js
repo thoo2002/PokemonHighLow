@@ -11,13 +11,13 @@ function HP() {
         stat: 45,
         img: 'none',
     });
-    useEffect(() => {
-        setPkm1({
-            name: getPkmnName(),
-            stat: getPkmnStat(),
-            img: getPkmnImg(),
-        }
-    )});
+    // useEffect(() => {
+    //     setPkm1({
+    //         name: getPkmnName(),
+    //         stat: getPkmnStat(),
+    //         img: getPkmnImg(),
+    //     }
+    // )},[pkm1]);
 
     const [pkm2, setPkm2] = useState({
         name: 'bulbasaur',
