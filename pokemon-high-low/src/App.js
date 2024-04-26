@@ -13,7 +13,7 @@ function App() {
         <header className="App-header">
           <h1>Pokemon High Low Game</h1>
           <nav>
-            <ul>
+            <ul class="myList">
               <li>
                 <Link to="/HP">HP</Link>
               </li>
