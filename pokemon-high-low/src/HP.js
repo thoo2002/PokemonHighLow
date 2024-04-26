@@ -2,10 +2,9 @@ import React, { useState, useEffect } from 'react';
 
 
 function HP() {
-    var token = 'ZLfYaxdGF3Y3W5VX5pKfwSgC8gyoFexpROaxdAbaAqzPT8wlT3d9GRD2WYx9kS9K';
-    const [data, setData] = useState(null);
-    const [name, setName] = useState(null);
-    const [img, setImg] = useState(null);
+    const [data, setData] = useState(80);
+    const [name, setName] = useState('venusaur');
+    const [img, setImg] = useState('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png');
     const [pkm1, setPkm1] = useState({
         name: 'bulbasaur',
         stat: 45,
@@ -13,7 +12,7 @@ function HP() {
     });
 
     const [pkm2, setPkm2] = useState({
-        name: 'Ivysaur',
+        name: 'ivysaur',
         stat: 60,
         img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png',
     });
@@ -32,7 +31,6 @@ function HP() {
         fetch('https://pokeapi.co/api/v2/pokemon/'+rand)
             .then((response) => response.json()) 
             .then((json) => {
-                console.log(json.stats[0].base_stat);
                 setData(json.stats[0].base_stat);
             })
             .catch(error => console.log(error));
@@ -42,7 +40,6 @@ function HP() {
         fetch('https://pokeapi.co/api/v2/pokemon/'+rand)
             .then((response) => response.json())
             .then((json) => {
-                console.log(json.sprites.front_default);
                 setImg(json.sprites.front_default)
             })
             .catch(error => console.log(error));
@@ -52,13 +49,13 @@ function HP() {
         fetch('https://pokeapi.co/api/v2/pokemon/'+rand)
             .then((response) => response.json())
             .then((json) => {
-                console.log(json.name);
                 setName(json.name);
             })
             .catch(error => console.log(error));
     };
 
     function ComparisonHigher() {
+        console.log(pkm2);
         if (pkm2.stat >= pkm1.stat){
             setCounter(counter + 1);
             setPkm1(pkm2);
@@ -69,8 +66,6 @@ function HP() {
             setPkm2({name: name
                 , stat: data
                 , img: img});
-            console.log(pkm1);
-            console.log(pkm2);
         }
         else{
             if (counter > HighScore){
@@ -93,8 +88,6 @@ function HP() {
                 stat: data,
                 img: img,
             });
-            console.log(pkm1);
-            console.log(pkm2);
         }
         else{
             if (counter > HighScore){
