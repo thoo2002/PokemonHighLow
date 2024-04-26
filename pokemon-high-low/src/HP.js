@@ -105,15 +105,15 @@ function HP() {
     }
     return (
         <div>
-            <h1>High Low</h1>
-            <h2>{pkm1.name}</h2>
+            <h1 class="para">High Low</h1>
+            <h2 class="para">{pkm1.name}</h2>
             <img src={pkm1.img} alt="Pokemon" />
             <button onClick={() => ComparisonHigher()}>Higher</button>
             <button onClick={() => ComparisonLower()}>Lower</button>
-            <h2>{pkm2.name}</h2>
+            <h2 class="para">{pkm2.name}</h2>
             <img src={pkm2.img} alt="Pokemon" />
-            <h2>Score: {counter}</h2>
-            <h2>High Score: {HighScore}</h2>
+            <h2 class="para">Score: {counter}</h2>
+            <h2 class="para">High Score: {HighScore}</h2>
         </div>
     );
 }

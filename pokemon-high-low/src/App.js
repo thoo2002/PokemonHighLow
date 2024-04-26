@@ -6,12 +6,14 @@ import DEF from './DEF.js';
 import SPATT from './SPATT.js';
 import SPDEF from './SPDEF.js';
 import SPEED from './SPEED.js';
+import './App.css';
 
 function App() {
   return (
-      <div className="App">
-        <header className="App-header">
-          <h1>Pokemon High Low Game</h1>
+      <div class="background">
+        <header>
+          <h1 class="title">Pokemon High Low Game</h1>
+          <p class="para">Choose a stat:</p>
           <nav>
             <ul class="myList">
               <li>
