@@ -14,14 +14,15 @@ function HP() {
 
     const [pkm2, setPkm2] = useState({
         name: 'Ivysaur',
-        stat: 50,
+        stat: 60,
         img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png',
     });
     const [counter, setCounter] = useState(0);
+    const [HighScore, setHighScore] = useState(0);
 
     const generateRandomNumber = () => {
         const min = 1;
-        const max = 151;
+        const max = 1025;
         return Math.floor(Math.random() * (max - min + 1)) + min;
     };
 
@@ -72,6 +73,9 @@ function HP() {
             console.log(pkm2);
         }
         else{
+            if (counter > HighScore){
+                setHighScore(counter);
+            }
             setCounter(0);
         }
     }
@@ -93,6 +97,9 @@ function HP() {
             console.log(pkm2);
         }
         else{
+            if (counter > HighScore){
+                setHighScore(counter);
+            }
             setCounter(0);
         }
     }
@@ -106,6 +113,7 @@ function HP() {
             <h2>{pkm2.name}</h2>
             <img src={pkm2.img} alt="Pokemon" />
             <h2>Score: {counter}</h2>
+            <h2>High Score: {HighScore}</h2>
         </div>
     );
 }
