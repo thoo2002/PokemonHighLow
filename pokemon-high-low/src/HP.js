@@ -9,62 +9,67 @@ function HP() {
     const [pkm1, setPkm1] = useState({
         name: 'bulbasaur',
         stat: 45,
-        img: 'none',
+        img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png',
     });
-    // useEffect(() => {
-    //     setPkm1({
-    //         name: getPkmnName(),
-    //         stat: getPkmnStat(),
-    //         img: getPkmnImg(),
-    //     }
-    // )},[pkm1]);
 
     const [pkm2, setPkm2] = useState({
-        name: 'bulbasaur',
-        stat: 45,
-        img: 'none',
+        name: 'Ivysaur',
+        stat: 50,
+        img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png',
     });
     const [counter, setCounter] = useState(0);
 
     const generateRandomNumber = () => {
         const min = 1;
-        const max = 1025;
+        const max = 151;
         return Math.floor(Math.random() * (max - min + 1)) + min;
     };
 
     const [rand, setRand] = useState(generateRandomNumber());
+    
     function getPkmnStat(){
-        fetch('http://api.pkmnapi.com/v1/pokemon/stats/'+ rand,{ headers:{'Authorization': 'Bearer ' + token}})
-            .then((response) => response.json())
-            .then((json) => setData(json.data[0].attributes.base_hp))
+        fetch('https://pokeapi.co/api/v2/pokemon/'+rand)
+            .then((response) => response.json()) 
+            .then((json) => {
+                console.log(json.stats[0].base_stat);
+                setData(json.stats[0].base_stat);
+            })
             .catch(error => console.log(error));
     };
 
     function getPkmnImg() {
-        fetch('http://api.pkmnapi.com/v1/pokemon/pics'+ rand,{ headers:{'Authorization': 'Bearer ' + token}})
+        fetch('https://pokeapi.co/api/v2/pokemon/'+rand)
             .then((response) => response.json())
-            .then((json) => setImg(json.data[0].attributes.front))
+            .then((json) => {
+                console.log(json.sprites.front_default);
+                setImg(json.sprites.front_default)
+            })
             .catch(error => console.log(error));
     };
 
     function getPkmnName() {
-        fetch('http://api.pkmnapi.com/v1/pokemon/names/'+ rand,{ headers:{'Authorization': 'Bearer ' + token}})
+        fetch('https://pokeapi.co/api/v2/pokemon/'+rand)
             .then((response) => response.json())
-            .then((json) => setName(json.data[0].attributes.name))
+            .then((json) => {
+                console.log(json.name);
+                setName(json.name);
+            })
             .catch(error => console.log(error));
     };
 
     function ComparisonHigher() {
-        console.log(pkm1);
-        console.log(pkm2);
-        if (pkm1.stat >= pkm2.stat){
+        if (pkm2.stat >= pkm1.stat){
             setCounter(counter + 1);
             setPkm1(pkm2);
-            setPkm2({
-                name: getPkmnName(),
-                stat: getPkmnStat(),
-                img: getPkmnImg(),
-            });
+            setRand(generateRandomNumber());
+            setData(getPkmnStat());
+            setName(getPkmnName());
+            setImg(getPkmnImg());
+            setPkm2({name: name
+                , stat: data
+                , img: img});
+            console.log(pkm1);
+            console.log(pkm2);
         }
         else{
             setCounter(0);
@@ -72,14 +77,20 @@ function HP() {
     }
 
     function ComparisonLower(){
-        if (pkm1.stat <= pkm2.stat){
+        if (pkm2.stat <= pkm1.stat){
             setCounter(counter + 1);
             setPkm1(pkm2);
+            setRand(generateRandomNumber());
+            setData(getPkmnStat());
+            setName(getPkmnName());
+            setImg(getPkmnImg());
             setPkm2({
-                name: getPkmnName(),
-                stat: getPkmnStat(),
-                img: getPkmnImg(),
+                name: name,
+                stat: data,
+                img: img,
             });
+            console.log(pkm1);
+            console.log(pkm2);
         }
         else{
             setCounter(0);
@@ -92,6 +103,8 @@ function HP() {
             <img src={pkm1.img} alt="Pokemon" />
             <button onClick={() => ComparisonHigher()}>Higher</button>
             <button onClick={() => ComparisonLower()}>Lower</button>
+            <h2>{pkm2.name}</h2>
+            <img src={pkm2.img} alt="Pokemon" />
             <h2>Score: {counter}</h2>
         </div>
     );
