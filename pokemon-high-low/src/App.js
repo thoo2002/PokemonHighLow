@@ -13,7 +13,7 @@ function App() {
       <div class="background">
         <header>
           <h1 class="title">Pokemon High Low Game</h1>
-          <p class="para">Choose a stat:</p>
+          <p class="text">Choose a stat:</p>
           <nav>
             <ul class="myList">
               <li>

@@ -43,4 +43,10 @@ a:hover {
 .para {
   font-size: 1.3em;
   color: lightgray;
+  text-transform: uppercase;
+}
+
+.text {
+  font-size: 1.3em;
+  color: lightgray;
 }
