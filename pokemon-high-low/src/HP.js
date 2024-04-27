@@ -130,11 +130,13 @@ function HP() {
                 <div class = 'col col_adjustment'>
                     <div class = "para">
                     {lose && <div>You lose!
-                        <button onClick={()=> TryAgain()}>Try Again</button>
+                        <button class = 'tryAgain'onClick={()=> TryAgain()}>Try Again</button>
                         </div>}
-                    </div> 
-                    <button class = 'greenButton' onClick={() => ComparisonHigher()}>Higher</button>
-                    <button class = 'redButton' onClick={() => ComparisonLower()}>Lower</button>
+                    </div>
+                    {!lose && <div>
+                        <button class = 'greenButton' onClick={() => ComparisonHigher()}>Higher</button>
+                        <button class = 'redButton' onClick={() => ComparisonLower()}>Lower</button>
+                        </div>} 
                 </div>
                 <div class = 'col'>
                     <h2 class="para">{pkm2.name}</h2>
