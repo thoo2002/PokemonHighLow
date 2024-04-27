@@ -18,12 +18,17 @@ function HP() {
     });
     const [counter, setCounter] = useState(0);
     const [HighScore, setHighScore] = useState(0);
-
+    const [lose, setLose] = useState(false);
     const generateRandomNumber = () => {
         const min = 1;
         const max = 1025;
         return Math.floor(Math.random() * (max - min + 1)) + min;
     };
+    const generateRandomNumber2 = () => {
+        const min = 1;
+        const max = 1025;
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
 
     const [rand, setRand] = useState(generateRandomNumber());
     
@@ -55,7 +60,6 @@ function HP() {
     };
 
     function ComparisonHigher() {
-        console.log(pkm2);
         if (pkm2.stat >= pkm1.stat){
             setCounter(counter + 1);
             setPkm1(pkm2);
@@ -71,7 +75,7 @@ function HP() {
             if (counter > HighScore){
                 setHighScore(counter);
             }
-            setCounter(0);
+            setLose(true);
         }
     }
 
@@ -93,18 +97,42 @@ function HP() {
             if (counter > HighScore){
                 setHighScore(counter);
             }
-            setCounter(0);
+            setLose(true);
         }
+    }
+    function TryAgain(){
+        var num = 0;
+        setLose(false);
+        setCounter(0);
+        while (num < 2){
+                setPkm2({
+                    name: name,
+                    stat: data,
+                    img: img,
+                });
+                setRand(generateRandomNumber());
+                setData(getPkmnStat());
+                setName(getPkmnName());
+                setImg(getPkmnImg());
+                setPkm1(pkm2);
+                num++;
+                console.log(pkm1);
+             }
     }
     return (
         <div>
-            <h1 class="para">High Low</h1>
+            <h1 class="para">High Low HP</h1>
             <div class = 'container'>
                 <div class = 'col'>
                     <h2 class="para">{pkm1.name}</h2>
                     <img src={pkm1.img} alt="Pokemon" />
                 </div>
                 <div class = 'col col_adjustment'>
+                    <div class = "para">
+                    {lose && <div>You lose!
+                        <button onClick={()=> TryAgain()}>Try Again</button>
+                        </div>}
+                    </div> 
                     <button class = 'greenButton' onClick={() => ComparisonHigher()}>Higher</button>
                     <button class = 'redButton' onClick={() => ComparisonLower()}>Lower</button>
                 </div>
