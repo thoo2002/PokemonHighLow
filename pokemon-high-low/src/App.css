@@ -50,3 +50,50 @@ a:hover {
   font-size: 1.3em;
   color: lightgray;
 }
+
+.container {
+  display: flex;
+  margin: 0 auto;
+  padding: 0 auto;
+  width: 50%;  
+}
+
+.col{
+  flex: 1;
+  margin-right: 1px;
+}
+.col_adjustment{
+  margin-top: 50px;
+}
+.greenButton {
+  background-color: transparent;
+  border: 2px solid transparent;
+  border-color: green;
+  color: white;
+  padding: 15px 30px; /* Increase padding to increase button size */
+  border-radius: 50px; /* Increase border-radius for rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s; /* Smooth transition for hover effect */
+  display: block; /* Make the buttons stack vertically */
+  margin-bottom: 10px; /* Add margin to create space between buttons */
+}
+
+.greenButton:hover {
+  background-color: lightgreen;
+}
+
+.redButton {
+  background-color: transparent;
+  color: white;
+  border: 2px solid transparent;
+  border-color: red;
+  padding: 15px 30px; /* Increase padding to increase button size */
+  border-radius: 50px; /* Increase border-radius for rounded corners */
+  cursor: pointer;
+  display: block; /* Make the buttons stack vertically */
+  margin-bottom: 10px; /* Add margin to create space between buttons */
+}
+
+.redButton:hover {
+  background-color: lightcoral;
+}

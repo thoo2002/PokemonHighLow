@@ -99,12 +99,20 @@ function HP() {
     return (
         <div>
             <h1 class="para">High Low</h1>
-            <h2 class="para">{pkm1.name}</h2>
-            <img src={pkm1.img} alt="Pokemon" />
-            <button onClick={() => ComparisonHigher()}>Higher</button>
-            <button onClick={() => ComparisonLower()}>Lower</button>
-            <h2 class="para">{pkm2.name}</h2>
-            <img src={pkm2.img} alt="Pokemon" />
+            <div class = 'container'>
+                <div class = 'col'>
+                    <h2 class="para">{pkm1.name}</h2>
+                    <img src={pkm1.img} alt="Pokemon" />
+                </div>
+                <div class = 'col col_adjustment'>
+                    <button class = 'greenButton' onClick={() => ComparisonHigher()}>Higher</button>
+                    <button class = 'redButton' onClick={() => ComparisonLower()}>Lower</button>
+                </div>
+                <div class = 'col'>
+                    <h2 class="para">{pkm2.name}</h2>
+                    <img src={pkm2.img} alt="Pokemon" />
+                </div>
+            </div>
             <h2 class="para">Score: {counter}</h2>
             <h2 class="para">High Score: {HighScore}</h2>
         </div>
