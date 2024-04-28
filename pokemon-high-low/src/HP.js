@@ -126,6 +126,7 @@ function HP() {
                 <div class = 'col'>
                     <h2 class="para">{pkm1.name}</h2>
                     <img src={pkm1.img} alt="Pokemon" />
+                    <h2 class="para">HP: {pkm1.stat}</h2>
                 </div>
                 <div class = 'col col_adjustment'>
                     <div class = "para">
