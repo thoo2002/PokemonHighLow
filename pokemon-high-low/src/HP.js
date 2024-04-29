@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 
 
 function HP() {
@@ -24,11 +24,6 @@ function HP() {
         const max = 1025;
         return Math.floor(Math.random() * (max - min + 1)) + min;
     };
-    const generateRandomNumber2 = () => {
-        const min = 1;
-        const max = 1025;
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
 
     const [rand, setRand] = useState(generateRandomNumber());
     
@@ -130,7 +125,7 @@ function HP() {
                 </div>
                 <div class = 'col col_adjustment'>
                     <div class = "para">
-                    {lose && <div>You lose!
+                    {lose && <div><div class ='lose'>You lose!</div>
                         <button class = 'tryAgain'onClick={()=> TryAgain()}>Try Again</button>
                         </div>}
                     </div>

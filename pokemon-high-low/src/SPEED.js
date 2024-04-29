@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 function SPEED() {
     const [data, setData] = useState(80);
     const [name, setName] = useState('venusaur');
@@ -22,6 +22,12 @@ function SPEED() {
         const max = 1025;
         return Math.floor(Math.random() * (max - min + 1)) + min;
     };
+    const generateRandomNumber2 = () => {
+        const min = 1;
+        const max = 151;
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    };
+
 
     const [rand, setRand] = useState(generateRandomNumber());
     
@@ -94,23 +100,19 @@ function SPEED() {
         }
     }
     function TryAgain(){
-        var num = 0;
         setLose(false);
         setCounter(0);
-        while (num < 2){
-                setPkm2({
-                    name: name,
-                    stat: data,
-                    img: img,
-                });
-                setRand(generateRandomNumber());
-                setData(getPkmnStat());
-                setName(getPkmnName());
-                setImg(getPkmnImg());
-                setPkm1(pkm2);
-                num++;
-                console.log(pkm1);
-             }
+        setPkm2({
+            name: name,
+            stat: data,
+            img: img,
+        });
+        setRand(generateRandomNumber2());
+        setData(getPkmnStat());
+        setName(getPkmnName());
+        setImg(getPkmnImg());
+        setPkm1(pkm2);
+        console.log(pkm1);
     }
     return (
         <div>
@@ -122,8 +124,8 @@ function SPEED() {
                     <h2 class="para">Speed: {pkm1.stat}</h2>
                 </div>
                 <div class = 'col col_adjustment'>
-                    <div class = "para">
-                    {lose && <div>You lose!
+                    <div class>
+                    {lose && <div><div class ='lose'>You lose!</div>
                         <button class = 'tryAgain'onClick={()=> TryAgain()}>Try Again</button>
                         </div>}
                     </div>
