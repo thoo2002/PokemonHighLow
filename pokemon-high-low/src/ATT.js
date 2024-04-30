@@ -39,7 +39,7 @@ function ATT() {
     };
 
 
-    const [rand, setRand] = useState(generateRandomNumber2());
+    const [rand, setRand] = useState(generateRandomNumber3());
     
     function getPkmnStat(){
         fetch('https://pokeapi.co/api/v2/pokemon/'+rand)
