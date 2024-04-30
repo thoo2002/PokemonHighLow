@@ -133,7 +133,15 @@ function ATT() {
             stat: data,
             img: img,
         });
-        setRand(generateRandomNumber2());
+        if( hard === true){
+            setRand(generateRandomNumber());
+        }
+        else if( medium === true){
+            setRand(generateRandomNumber2());
+        }
+        else{
+            setRand(generateRandomNumber3());
+        }
         setData(getPkmnStat());
         setName(getPkmnName());
         setImg(getPkmnImg());

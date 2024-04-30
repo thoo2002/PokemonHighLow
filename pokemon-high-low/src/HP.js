@@ -41,7 +41,7 @@ function HP() {
     };
 
 
-    const [rand, setRand] = useState(generateRandomNumber2());
+    const [rand, setRand] = useState(generateRandomNumber3());
     
     function getPkmnStat(){
         fetch('https://pokeapi.co/api/v2/pokemon/'+rand)
@@ -135,7 +135,15 @@ function HP() {
             stat: data,
             img: img,
         });
-        setRand(generateRandomNumber2());
+        if( hard === true){
+            setRand(generateRandomNumber());
+        }
+        else if( medium === true){
+            setRand(generateRandomNumber2());
+        }
+        else{
+            setRand(generateRandomNumber3());
+        }
         setData(getPkmnStat());
         setName(getPkmnName());
         setImg(getPkmnImg());
