@@ -143,10 +143,10 @@ function SPEED() {
     return (
         <div>
             <h1 class="para">High Low Speed</h1>
-            {(!easy && !medium && !hard) && <div>
-                <button class = 'greenButton' onClick={() => setEasy(true)}>Easy</button>
-                <button class = 'yellowButton' onClick={() => setMedium(true)}>Medium</button>
-                <button class = 'redButton' onClick={() => setHard(true)}>Hard</button>
+            {(!easy && !medium && !hard) && <div class="inLine">
+                <button class = 'easyButton' onClick={() => setEasy(true)}>Easy</button>
+                <button class = 'medButton' onClick={() => setMedium(true)}>Medium</button>
+                <button class = 'hardButton' onClick={() => setHard(true)}>Hard</button>
             </div>}
             {(easy || medium || hard) && <div>
             <div class = 'container'>

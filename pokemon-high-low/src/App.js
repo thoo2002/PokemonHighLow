@@ -26,10 +26,10 @@ function App() {
                 <Link to="/DEF">DEFENSE</Link>
               </li>
               <li>
-                <Link to="/SPATT">SPECIAL ATTACK</Link>
+                <Link to="/SPATT">SP. ATTACK</Link>
               </li>
               <li>
-                <Link to="/SPDEF">SPECIAL DEFENSE</Link>
+                <Link to="/SPDEF">SP. DEFENSE</Link>
               </li>
               <li>
                 <Link to="/SPEED">SPEED</Link>

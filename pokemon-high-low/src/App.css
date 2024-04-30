@@ -1,6 +1,7 @@
 .myList {
   list-style-type: none;
   font-size: 1.2em;
+  text-align: center;
 }
 
 .myList li {
@@ -124,4 +125,63 @@ a:hover {
   font-size: 2em;
   color: lightgray;
   text-transform: uppercase;
+}
+
+.medButton {
+  background-color: transparent;
+  color: white;
+  border: 2px solid transparent;
+  border-color: goldenrod;
+  padding: 15px 30px; /* Increase padding to increase button size */
+  border-radius: 50px; /* Increase border-radius for rounded corners */
+  cursor: pointer;
+  display: block; /* Make the buttons stack vertically */
+  margin-bottom: 10px; /* Add margin to create space between buttons */
+}
+
+.medButton:hover {
+  background-color: grey;
+}
+
+.inLine{
+  text-align: center;
+}
+
+.inLine button{
+  display: inline-block;
+  margin-right: 10px;
+
+}
+
+.easyButton {
+  background-color: transparent;
+  color: white;
+  border: 2px solid transparent;
+  border-color: red;
+  padding: 15px 30px; /* Increase padding to increase button size */
+  border-radius: 50px; /* Increase border-radius for rounded corners */
+  cursor: pointer;
+  display: block; /* Make the buttons stack vertically */
+  margin-bottom: 10px; /* Add margin to create space between buttons */
+}
+
+.easyButton:hover {
+  background-color: white;
+  color: black;
+}
+
+.hardButton {
+  background-color: transparent;
+  color: white;
+  border: 2px solid transparent;
+  border-color: rgb(54, 45, 92);
+  padding: 15px 30px; /* Increase padding to increase button size */
+  border-radius: 50px; /* Increase border-radius for rounded corners */
+  cursor: pointer;
+  display: block; /* Make the buttons stack vertically */
+  margin-bottom: 10px; /* Add margin to create space between buttons */
+}
+
+.hardButton:hover {
+  background-color: rgb(162, 92, 126);
 }
