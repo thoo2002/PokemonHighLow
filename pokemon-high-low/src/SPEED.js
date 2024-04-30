@@ -17,6 +17,10 @@ function SPEED() {
     const [counter, setCounter] = useState(0);
     const [HighScore, setHighScore] = useState(0);
     const [lose, setLose] = useState(false);
+    const [easy, setEasy] = useState(false);
+    const [medium, setMedium] = useState(false);
+    const [hard, setHard] = useState(false);
+
     const generateRandomNumber = () => {
         const min = 1;
         const max = 1025;
@@ -28,8 +32,14 @@ function SPEED() {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     };
 
+    const generateRandomNumber3 = () => {
+        const min = 1;
+        const max = 151;
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    };
 
-    const [rand, setRand] = useState(generateRandomNumber());
+
+    const [rand, setRand] = useState(generateRandomNumber2());
     
     function getPkmnStat(){
         fetch('https://pokeapi.co/api/v2/pokemon/'+rand)
@@ -62,7 +72,15 @@ function SPEED() {
         if (pkm2.stat >= pkm1.stat){
             setCounter(counter + 1);
             setPkm1(pkm2);
-            setRand(generateRandomNumber());
+            if( hard === true){
+                setRand(generateRandomNumber());
+            }
+            else if( medium === true){
+                setRand(generateRandomNumber2());
+            }
+            else{
+                setRand(generateRandomNumber3());
+            }
             setData(getPkmnStat());
             setName(getPkmnName());
             setImg(getPkmnImg());
@@ -82,7 +100,15 @@ function SPEED() {
         if (pkm2.stat <= pkm1.stat){
             setCounter(counter + 1);
             setPkm1(pkm2);
-            setRand(generateRandomNumber());
+            if( hard === true){
+                setRand(generateRandomNumber());
+            }
+            else if( medium === true){
+                setRand(generateRandomNumber2());
+            }
+            else{
+                setRand(generateRandomNumber3());
+            }
             setData(getPkmnStat());
             setName(getPkmnName());
             setImg(getPkmnImg());
@@ -117,6 +143,12 @@ function SPEED() {
     return (
         <div>
             <h1 class="para">High Low Speed</h1>
+            {(!easy && !medium && !hard) && <div>
+                <button class = 'greenButton' onClick={() => setEasy(true)}>Easy</button>
+                <button class = 'yellowButton' onClick={() => setMedium(true)}>Medium</button>
+                <button class = 'redButton' onClick={() => setHard(true)}>Hard</button>
+            </div>}
+            {(easy || medium || hard) && <div>
             <div class = 'container'>
                 <div class = 'col'>
                     <h2 class="para">{pkm1.name}</h2>
@@ -139,6 +171,7 @@ function SPEED() {
                     <img src={pkm2.img} alt="Pokemon" />
                 </div>
             </div>
+            </div>}
             <h2 class="para">Score: {counter}</h2>
             <h2 class="para">High Score: {HighScore}</h2>
         </div>
