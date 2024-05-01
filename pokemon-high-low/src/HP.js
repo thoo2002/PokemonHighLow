@@ -47,7 +47,7 @@ function HP() {
         fetch('https://pokeapi.co/api/v2/pokemon/'+rand)
             .then((response) => response.json()) 
             .then((json) => {
-                setData(json.stats[2].base_stat);
+                setData(json.stats[0].base_stat);
             })
             .catch(error => console.log(error));
     };
@@ -152,7 +152,7 @@ function HP() {
     }
     return (
         <div>
-            <h1 class="para">High Low Defense</h1>
+            <h1 class="para">High Low HP</h1>
             {(!easy && !medium && !hard) && <div class="inLine">
                 <button class = 'easyButton' onClick={() => setEasy(true)}>Easy</button>
                 <button class = 'medButton' onClick={() => setMedium(true)}>Medium</button>
@@ -163,7 +163,7 @@ function HP() {
                 <div class = 'col'>
                     <h2 class="para">{pkm1.name}</h2>
                     <img src={pkm1.img} alt="Pokemon" />
-                    <h2 class="para">Defense: {pkm1.stat}</h2>
+                    <h2 class="para">HP: {pkm1.stat}</h2>
                 </div>
                 <div class = 'col col_adjustment'>
                     <div class>
